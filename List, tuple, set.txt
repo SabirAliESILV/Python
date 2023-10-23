@@ -1,0 +1,90 @@
+list = [0, 1, 2, 3, 4, 5]
+for i in list:
+  print(list[i])
+
+list.append(6)
+print(list[6])
+
+list.remove(5)
+print(list)
+
+list[5] = 5
+print(list)
+
+tuple = (0, 1, 2, 3)
+print(tuple)
+
+set = {0, 1, 2, 3}
+
+print(len(list))
+
+print(list[1:])
+
+list2 = [5, "Hello", "Hi", "7", "e", [1,2]]
+print(list2[5][1])
+
+
+n = 1000
+list=[]
+for i in range(1,n+1):
+  list.append(1/i)
+print(sum(list))
+
+
+line = "this is a test"
+list = line.split()
+print(list)
+
+
+name = []
+grade = []
+x = input("Enter name: ")
+y = input("Enter grade: ")
+while x != "":
+    name.append(x)
+    grade.append(y)
+    x = input("Enter name: ")
+    y = input("Enter grade: ")
+print(name)
+print(grade)
+sum = 0
+for i in grade:
+    sum = sum + int(i)
+print("Mean : ",sum/len(grade))
+
+
+list = []
+x = input("Enter number: ")
+while x != "":
+    list.append(x)
+    x = input("Enter number: ")
+sum = 0
+for i in list:
+    sum = sum + int(i)
+mean = sum/len(list)
+print("Mean : {:.2f}".format(mean))
+
+
+element = ["H", "C", "N", "O", "S", "CL"]
+mass = [1.008, 12.011, 14.007, 15.999, 32.065, 35.453]
+num = int(input("How many elements ? "))
+sum = 0
+for i in range(0,num):
+  st = input("What element ? ")
+  nb = int(input("How many ? "))
+  sum = sum + nb * mass[element.index(st)]
+print("Sum = {}".format(sum))
+
+
+n = int(input("Maximum degree : "))
+coeffs = []
+for i in range(0,n+1):
+  c = int(input("Coeff n°{} : ".format(i)))
+  coeffs.append(c)
+x = float(input("Value of x : "))
+degree = 0
+result = 0
+for i in coeffs :
+  result = result + i * (x**degree)
+  degree += 1
+print("Result = {}".format(result))
