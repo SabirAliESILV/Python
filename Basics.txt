@@ -1,0 +1,15 @@
+print('How much ? ')
+price = float(input())
+print(price+2.5)
+
+print('sparrow' > 'eagle')
+print('dog' > 'Cat' and 45 % 3 == 0)
+
+print(223/71)
+print((1+1/10)**10)
+print((1+1/100)**100)
+print((1+1/1000)**1000)
+
+print('Good morning'[-5:-1])
+
+print(dir(str))
