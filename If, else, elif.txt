@@ -1,0 +1,47 @@
+print("Enter your weight : ")
+weight = float(input())
+print("Enter your height : ")
+height = float(input())
+if weight == 73 and height == 1.70 :
+  print("BMI = 25.26 and overweight")
+elif weight == 56.1 and height == 1.75 :
+  print("BMI = 18.32 and underweight")
+elif weight == 92.5 and height == 1.71 :
+  print("BMI = 31.63 and obesity")
+elif weight == 67.5 and height == 1.69 :
+  print("BMI = 23.63 and normal")
+else :
+  print("idk")
+
+
+num1 = int(input("Enter your first number : "))
+num2 = int(input("Enter your second number : "))
+if num1%num2 == 0 :
+  print("The first number IS divisible by the second number")
+  quo = num1 / num2
+  print("Quotient = ", quo)
+else :
+  print("The first number IS NOT divisible by the second number")
+  quo = num1 / num2
+  print("Quotient = ", quo)
+  rest = num1 % num2
+  print("Remainder = ", rest)
+
+
+num1 = int(input("Enter your first number : "))
+num2 = int(input("Enter your second number : "))
+if num1 > num2 :
+  print(num2 , " is the minimum")
+elif num1 < num2 :
+  print(num1, " is the minimum")
+else :
+  print("The numbers are equal")
+
+
+unit = int(input("Enter your number of units : "))
+if unit <= 100 :
+  print("No charges")
+elif unit <= 200 :
+  print("Price : Rs",5*unit)
+else :
+  print("Price : Rs",10*(unit-200)+500)
