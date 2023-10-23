@@ -1,0 +1,68 @@
+import numpy as np
+import math
+
+
+arr = np.linspace(1.0,5.0,21)
+arr = arr / 10
+print(arr)
+
+
+x0 = float(input("x0 : "))
+s = float(input("s : "))
+init = float(input("Initial x : "))
+fin = float(input("Final x : "))
+num = int(input("Number of points : "))
+vect = np.linspace(init, fin, num)
+arr = np.zeros((num,2))
+for i in range(num):
+  arr[i,0] = vect[i]
+  arr[i,1] = (1 / math.sqrt(2*math.pi))*math.exp((-1/2)*((vect[i]-x0)**2/s**2))
+  print("{0:.3f}".format(arr[i,0]),"{0:.5f}".format(arr[i,1]))
+
+
+temp_mar = [13.8, 13.3, 13.9, 15.0, 16.4, 20.0, 21.9, 22.3, 22.0, 21.2, 18.8, 16.0]
+months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
+'November', 'December']
+arr = np.array(temp_mar)
+average = sum(arr)/len(arr)
+print("Average : {}".format(average))
+for i in range(len(temp_mar)-1):
+  if(temp_mar[i]>temp_mar[i+1]):
+    min_temp = temp_mar[i+1]
+    min_month = months[i+1]
+print("Coldest month : {}, at {}°C".format(min_month,min_temp))
+for i in range(len(temp_mar)-1):
+  if(temp_mar[i]<temp_mar[i+1]):
+    max_temp = temp_mar[i+1]
+    max_month = months[i+1]
+print("Warmest month : {}, at {}°C".format(max_month,max_temp))
+
+
+num = int(input("Enter the number of students: "))
+theory = []
+problem = []
+for i in range(num):
+  comp = input("Enter the theory mark of the student {}: ".format(i))
+  theory.append(float(comp))
+theory = np.array(theory)
+for i in range(num):
+  comp = input("Enter the problem mark of the student {}: ".format(i))
+  problem.append(float(comp))
+problem = np.array(problem)
+arr = np.zeros((num,4))
+totals = []
+for i in range(num):
+  arr[i,0] = i
+  arr[i,1] = theory[i]
+  arr[i,2] = problem[i]
+  arr[i,3] = theory[i] * 0.4 + problem[i] * 0.6
+  totals.append(arr[i,3])
+print(arr)
+max = np.max(totals)
+min = np.min(totals)
+average = np.average(totals)
+best_student = totals.index(max)
+print("Maximum total mark = {}".format(max))
+print("Minimum total mark = {}".format(min))
+print("Average total mark = {}".format(average))
+print("The student who has the maximum total mark is student {}".format(best_student))
