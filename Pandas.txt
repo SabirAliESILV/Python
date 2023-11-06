@@ -1,0 +1,101 @@
+import pandas as pd
+print(pd.__version__)
+df = pd.read_csv("/content/Educational_Attainment_20231027.csv")
+
+
+df.head(2)
+df.tail(10)
+df.describe()
+df.shape
+
+
+#remove special character
+df.columns = df.columns.str.replace(' ','')
+df.columns = df.columns.str.replace("'","")
+#print file after removing special character
+print("\n\n", df)
+
+
+df.dtypes
+df.drop("Geography", axis=1).describe(include="all")
+
+
+df.BachelorsDegreeorHigher.mean()
+df.Geography.count()
+df.Geographytype.unique()
+df.LessThanHighSchoolGraduate.value_counts()
+df.Geographytype.value_counts()
+
+
+df.loc[9:19,"Year":"SomeCollegeorAssociatesDegree"]
+
+
+def mapGeography(x):
+  if x == "Town" :
+    return 1
+  else:
+    return 0
+
+
+df['geography_mapped_value'] = df.Geographytype.apply(mapGeography)
+df['Geographytype'].head(5)
+df['geography_mapped_value'].head(5)
+
+
+
+
+import pandas as pd
+
+baby_names = pd.read_csv("/content/US_Baby_Names_right.csv")
+
+baby_names.head(10)
+
+baby_names = baby_names.drop(columns = 'Unnamed: 0')
+baby_names = baby_names.drop(columns = 'Id')
+
+baby_names.Gender.value_counts()
+
+names = baby_names.groupby("Name").sum()
+
+names.shape
+len(names)
+
+names.sort_values("Count", ascending=0).head()
+
+names.sort_values("Count", ascending=1).head()
+
+
+
+
+import pandas as pd
+
+euro12 = pd.read_csv("/content/Euro_2012_stats_TEAM.csv")
+
+euro12['Goals']
+euro12.Goals
+
+euro12.Team.value_counts().sum()
+len(euro12['Team'].unique())
+
+euro12.shape
+
+discipline = euro12.loc[:,['Team','Yellow Cards','Red Cards']]
+
+discipline.sort_values("Red Cards", ascending=0).head()
+discipline.sort_values("Yellow Cards", ascending=0).head()
+discipline.sort_values(by=["Red Cards","Yellow Cards"], ascending=[0,0])
+
+discipline.groupby("Team")["Yellow Cards"].mean()
+
+euro12[["Team","Goals"]][euro12.Goals >= 6]
+
+euro12["Team"][euro12.Team.str.startswith("G")]
+
+euro12.iloc[:,0:7]
+
+euro12.iloc[:,0:-3]
+
+euro12.loc[[3,7,12],["Team","Shooting Accuracy"]]
+
+final = euro12[["Team","Passing Accuracy","Goals","Penalty goals"]]
+final.sort_values(by=["Passing Accuracy","Goals","Penalty goals"], ascending=[0,0,1])
